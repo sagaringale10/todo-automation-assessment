@@ -1,38 +1,77 @@
-# todo-automation-assessment
-Assesment for cognizant
+# To-Do Automation Assessment
 
-**Cognizant Internal Evaluation: Automation Technical Challenge**
+## Overview
+This repository contains automated tests for the To-Do MVC application provided as part of Cognizant's Automation Technical Challenge. The goal of the tests is to verify key functionalities of the application, ensuring users can manage their to-dos effectively.
 
-This project was inspired also by Selene which is an attempt to implement Selenide + htmlelements in Python.
+## Tools and Technologies Used
+- **Programming Language:** Python
+- **Automation Tool:** Selenium
+- **Browser Driver:** ChromeDriver
 
-It differs from Selene
-* by using Selenium explicit waits under the hood (Selene implements its own explicit waits)
-* by using Selenium style of expected conditions to be used with explicit waits
-* only manual webdriver creation (Selene creates and closes driver automatically)
-* no Element Widgets support (like in htmlelements), though can be added soon rather easy
-* no screenshots in error messages (though can be added very easy)
-This simplified the implementation a lot, but have some drawbacks becuase selenium's expected conditions are not handy in use, limiting the possibilities.
+## Acceptance Criteria
+The following features were tested based on the provided user story:
 
-## To start writing tests
-* install python 
-* install selenium and pytest
-* install IDE (e.g. PyCharm CE)
-* clone or download the repo
-* open in IDE
-* write your own tests under the tests folder
-* run them from command line via py.test command executed from the project folder
+1. **Adding a To-Do**:
+   - The user can add a task via the input box.
+   - The task is displayed in the list immediately after adding.
 
-(google on installation guides for all tools)
+2. **Marking a To-Do as Completed**:
+   - The user can mark tasks as completed using a checkbox.
+   - Completed tasks show a strikethrough effect.
 
-## TODOs
-* add more docs and howtos on insallation and usage, etc.
-* add "one test per feature" style tests with before/after hooks for clearing data
-* tag smoke tests
-* implement conditions in a simpler and smarter way
+3. **Editing a To-Do**:
+   - Double-clicking a task enables editing mode.
+   - Tasks can be updated by pressing Enter or canceled by pressing Esc.
 
-## Extra notes
+4. **Deleting a To-Do**:
+   - Hovering over a task shows a delete button.
+   - Clicking the delete button removes the task.
 
-### About PageObjects
+5. **Filtering To-Dos**:
+   - The user can filter tasks (All, Active, Completed).
+   - Filters display tasks correctly based on their status.
 
-This version of the project contains all "helpers to work with page's elements" in a separate PageObject implemented
-as a simple Python module. 
+## Prerequisites
+Before running the tests, ensure the following are installed:
+- Python (3.7 or higher)
+- Selenium (`pip install selenium`)
+- ChromeDriver (compatible with your Chrome browser version)
+
+## Project Structure
+```
+.
+|-- test_add_todo.py        # Test for adding a to-do
+|-- test_complete_todo.py   # Test for marking a to-do as completed
+|-- test_edit_todo.py       # Test for editing a to-do
+|-- test_delete_todo.py     # Test for deleting a to-do
+|-- test_filter_todo.py     # Test for filtering to-dos
+|-- requirements.txt        # Dependencies for the project
+```
+
+## Setup Instructions
+1. **Clone the repository:**
+   ```bash
+   git clone <repository_url>
+   cd <repository_name>
+   ```
+2. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Download ChromeDriver:**
+   - Download the ChromeDriver matching your Chrome browser version.
+   - Place the `chromedriver.exe` file in the root directory.
+
+## Running the Tests
+To run a specific test, use the following command:
+```bash
+python test_add_todo.py
+```
+Replace `test_add_todo.py` with the desired test file.
+
+## Implementation Strategy
+The automation tests were designed to:
+- Identify key elements of the application using unique identifiers (e.g., class names or IDs).
+- Automate user actions such as adding, editing, or deleting tasks.
+- Validate the expected outcomes using assertions.
+
